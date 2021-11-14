@@ -12,7 +12,7 @@ fit f(x) 'data.txt' via a,b
 stats 'data.txt' using 1:2 name "A"
 correl= A_correlation **2
 
-title_f(a,b) = sprintf('f(x) = %.2fx + %.2f   r^2=%.3f ', a, b, correl)
+title_f(a,b) = sprintf('f(x) = %.3fx + %.3f   r^2=%.3f ', a, b, correl)
 blau_1="#8666F4"
 turk= "#52F1EB"
 blau_3= "#6391F3"
@@ -48,4 +48,4 @@ set xlabel "Spannung in mV" font my_font
 set ylabel "L_Diff in W/m^2" font my_font
 
 #plot the graphic
-plot 'data.txt' title 'Messwerte' , f(x) title title_f(a,b)
+plot 'data.txt' title 'Messwerte' with xyerrorbars , f(x) title title_f(a,b)
