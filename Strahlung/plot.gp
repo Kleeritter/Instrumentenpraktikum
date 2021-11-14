@@ -5,7 +5,13 @@ set output 'ccd.png'
 #Aussehen
 my_font = "quicksand,22"
 
+#Regression
+f(x)=a*x+b
 
+fit f(x) 'data.txt' via a,b
+
+
+title_f(a,b) = sprintf('f(x) = %.2fx + %.2f', a, b)
 blau_1="#8666F4"
 turk= "#52F1EB"
 blau_3= "#6391F3"
@@ -33,13 +39,12 @@ set title 'Lampen und Filterspektren im Vergleich ' font my_font
 set key  font my_font
 
 #Range
-set yrange [0:3500]
-set xrange [350:1000]
+#set yrange [0:3500]
+#set xrange [350:1000]
 
 #Label
 set xlabel "Wellenlänge in nm" font my_font
 set ylabel "Intensität in Counts" font my_font
 
 #plot the graphic
-plot 'test.txt' using 1:2 title 'Lampenspektrum' , 'test.txt' using 1:3  title 'schwarzer Filter','test.txt' using 1:4   title 'gelber Filter','test.txt' using 1:5   title 'orangener Filter','test.txt' using 1:6   title 'roter Filter'
-
+plot 'data.txt' title 'Dingens' , f(x) title title_f(a,b)
