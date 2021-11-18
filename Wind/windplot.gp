@@ -1,15 +1,15 @@
 #Set the output to a png file
 set terminal pngcairo size 1920,1080
 # The file well write to
-set output 'ccd.png'
+set output 'wind.png'
 #Aussehen
 my_font = "quicksand,22"
 
 #Regression
 f(x)=a*x+b
 
-fit f(x) 'data.txt' via a,b
-stats 'data.txt' using 1:2 name "A"
+fit f(x) 'winddaten.txt' via a,b
+stats 'winddaten.txt' using 1:2 name "A"
 correl= A_correlation **2
 
 title_f(a,b) = sprintf('f(x) = %.3fx + %.3f   r^2=%.3f ', a, b, correl)
@@ -44,8 +44,8 @@ set key left
 #set xrange [350:1000]
 
 #Label
-set xlabel "Spannung in mV" font my_font
-set ylabel "L_Diff in W/m^2" font my_font
+set xlabel "Strom in mA" font my_font
+set ylabel "Windgeschwindigkeit in m/s" font my_font
 
 #plot the graphic
-plot 'data.txt' title 'Messwerte' with xyerrorbars , f(x) title title_f(a,b)
+plot 'winddaten.txt' title 'Messwerte' with xyerrorbars , f(x) title title_f(a,b)
