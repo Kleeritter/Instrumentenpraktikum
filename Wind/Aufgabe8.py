@@ -12,6 +12,16 @@ for i in np.arange(253.15, 313.15 ,1):
 
 v = np.arange(0.1, 15.0 ,0.1)
 fehlerv= 0.05
-fehlerd=
-fehlerc=
+d= 0.15
+fehlerd= 0.001
+fehlerc= 0.1
 fehlert= np.array([])
+for i in schall:
+    for j in  v:
+        fehlerv=0
+        while fehlerv < 0.05:
+            fehlerte = math.sqrt((((d)/(i+j)**2)*fehlerc)**2+(((d)/(i+j)**2)*fehlerv)**2+(((1)/(i+j)**2)*fehlerd)**2)
+            fehlert= np.append(fehlert,fehlerte)
+            fehlerv += 0.01
+
+print(max(fehlert))
