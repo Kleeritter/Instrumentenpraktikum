@@ -21,10 +21,10 @@ blau_2 ="#2596be"
 
 my_line_width = "2"
 my_axis_width = "1.5"
-my_ps = "0.5"
+my_ps = "1.5"
 set pointsize my_ps
 
-set style line 2 linecolor rgbcolor blau_1 linewidth @my_line_width pt 7
+set style line 2 linecolor rgbcolor turk linewidth @my_line_width pt 7
 set style line 1 linecolor rgbcolor black linewidth @my_line_width pt 7
 set style line 3 linecolor rgbcolor blau_3 linewidth @my_line_width pt 7
 set style line 5 linecolor rgbcolor blau_2 linewidth @my_line_width pt 7
@@ -44,7 +44,7 @@ set key left
 #set xrange [350:1000]
 
 #Label
-set xlabel "Strom in mA" font my_font
+set xlabel "Strom in  A" font my_font
 set ylabel "Windgeschwindigkeit in m/s" font my_font
 
 #plot the graphic
