@@ -13,23 +13,23 @@ stats 'winddaten.txt' using 1:2 name "A"
 correl= A_correlation **2
 
 title_f(a,b) = sprintf('f(x) = %.3fx + %.3f   r^2=%.3f ', a, b, correl)
-blau_1="#8666F4"
-turk= "#52F1EB"
-blau_3= "#6391F3"
-black = "#000000"
-blau_2 ="#2596be"
+farbe_1="#8FBCBB"
+farbe_2= "#88C0D0"
+farbe_3= "#81A1C1"
+farbe_4 = "#5E81AC"
+farbe_5 ="#2E3440"
 
 my_line_width = "2"
 my_axis_width = "1.5"
 my_ps = "1.5"
 set pointsize my_ps
 
-set style line 2 linecolor rgbcolor turk linewidth @my_line_width pt 7
-set style line 1 linecolor rgbcolor black linewidth @my_line_width pt 7
-set style line 3 linecolor rgbcolor blau_3 linewidth @my_line_width pt 7
-set style line 5 linecolor rgbcolor blau_2 linewidth @my_line_width pt 7
-set style line 4 linecolor rgbcolor turk linewidth @my_line_width pt 7
-set style line 6 linecolor rgbcolor blau_3 linewidth @my_line_width pt 7
+set style line 2 linecolor rgbcolor farbe_4 linewidth @my_line_width pt 7
+set style line 1 linecolor rgbcolor farbe_1 linewidth @my_line_width pt 7
+set style line 3 linecolor rgbcolor farbe_3 linewidth @my_line_width pt 7
+set style line 5 linecolor rgbcolor farbe_4 linewidth @my_line_width pt 7
+set style line 4 linecolor rgbcolor farbe_5 linewidth @my_line_width pt 7
+
 set style increment user
 # The graphic title
 set title 'Lineare Regression' font my_font
@@ -48,4 +48,4 @@ set xlabel "Strom in  A" font my_font
 set ylabel "Windgeschwindigkeit in m/s" font my_font
 
 #plot the graphic
-plot 'winddaten.txt' title 'Messwerte' with xyerrorbars , f(x) title title_f(a,b)
+plot f(x) title title_f(a,b),'winddaten.txt' title 'Messwerte' with xyerrorbars 
