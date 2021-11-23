@@ -44,7 +44,7 @@ set key left
 #set xrange [350:1000]
 
 #Label
-set xlabel "Spannung in mV" font my_font
+set xlabel "Spannung in V" font my_font
 set ylabel "L_Diff in W/m^2" font my_font
 
 #plot the graphic
